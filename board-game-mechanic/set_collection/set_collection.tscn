@@ -1,0 +1,157 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://set_collection/set_collection.gd" id="1_set"]
+
+[node name="SetCollectionDemo" type="Node2D"]
+script = ExtResource("1_set")
+max_sets = 5
+cards_per_set = 3
+auto_setup = true
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.12, 0.12, 0.2, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 1
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+theme_override_constants/separation = 20
+
+[node name="TitleLabel" type="Label" parent="CanvasLayer/Control/VBoxContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "🎯 成套收集機制 🎯"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 32
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+
+[node name="GameArea" type="VBoxContainer" parent="CanvasLayer/Control/VBoxContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/VBoxContainer/GameArea"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 50
+
+[node name="AvailableContainer" type="Node2D" parent="CanvasLayer/Control/VBoxContainer/GameArea/HBoxContainer"]
+size_flags_horizontal = 1
+size_flags_vertical = 3
+custom_minimum_size = Vector2(500, 300)
+
+[node name="AvailableLabel" type="Label" parent="CanvasLayer/Control/VBoxContainer/GameArea/HBoxContainer/AvailableContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -30.0
+text = "可用卡牌池"
+horizontal_alignment = 1
+vertical_alignment = 0
+theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+
+[node name="CollectedContainer" type="Node2D" parent="CanvasLayer/Control/VBoxContainer/GameArea/HBoxContainer"]
+size_flags_horizontal = 1
+size_flags_vertical = 3
+custom_minimum_size = Vector2(500, 300)
+
+[node name="CollectedLabel" type="Label" parent="CanvasLayer/Control/VBoxContainer/GameArea/HBoxContainer/CollectedContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -30.0
+text = "已收集卡牌"
+horizontal_alignment = 1
+vertical_alignment = 0
+theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+
+[node name="SetsContainer" type="Node2D" parent="CanvasLayer/Control/VBoxContainer/GameArea"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_minimum_size = Vector2(0, 300)
+
+[node name="SetsLabel" type="Label" parent="CanvasLayer/Control/VBoxContainer/GameArea/SetsContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -30.0
+text = "套裝目標"
+horizontal_alignment = 1
+vertical_alignment = 0
+theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+
+[node name="ControlPanel" type="HBoxContainer" parent="CanvasLayer/Control/VBoxContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/separation = 15
+
+[node name="DrawButton" type="Button" parent="CanvasLayer/Control/VBoxContainer/ControlPanel"]
+size_flags_horizontal = 1
+size_flags_vertical = 0
+custom_minimum_size = Vector2(0, 50)
+text = "抽牌 🃏"
+
+[node name="CollectButton" type="Button" parent="CanvasLayer/Control/VBoxContainer/ControlPanel"]
+size_flags_horizontal = 1
+size_flags_vertical = 0
+custom_minimum_size = Vector2(0, 50)
+text = "收集 📥"
+
+[node name="CompleteSetButton" type="Button" parent="CanvasLayer/Control/VBoxContainer/ControlPanel"]
+size_flags_horizontal = 1
+size_flags_vertical = 0
+custom_minimum_size = Vector2(0, 50)
+text = "完成套裝 ✅"
+
+[node name="ResetButton" type="Button" parent="CanvasLayer/Control/VBoxContainer/ControlPanel"]
+size_flags_horizontal = 1
+size_flags_vertical = 0
+custom_minimum_size = Vector2(0, 50)
+text = "重置 🔄"
+
+[node name="BackButton" type="Button" parent="CanvasLayer/Control/VBoxContainer/ControlPanel"]
+size_flags_horizontal = 1
+size_flags_vertical = 0
+custom_minimum_size = Vector2(0, 50)
+text = "返回主選單 ←"
+
+[node name="InfoPanel" type="VBoxContainer" parent="CanvasLayer/Control/VBoxContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="InfoLabel" type="Label" parent="CanvasLayer/Control/VBoxContainer/InfoPanel"]
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "歡迎使用成套收集機制！點擊抽牌開始遊戲。"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0.9, 0.9, 0.5, 1)
+
+[node name="ScoreLabel" type="RichTextLabel" parent="CanvasLayer/Control/VBoxContainer/InfoPanel"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_minimum_size = Vector2(0, 150)
+bbcode_enabled = true
+text = "[b]遊戲狀態：[/b]\n總分數：0\n已收集卡牌：0 張\n已完成套裝：0/5"
+
+[node name="SetsLabel" type="RichTextLabel" parent="CanvasLayer/Control/VBoxContainer/InfoPanel"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_minimum_size = Vector2(0, 150)
+bbcode_enabled = true
+text = "[b]套裝列表：[/b]\n⏳ 紅色套裝\n⏳ 藍色套裝\n⏳ 綠色套裝\n⏳ 紫色套裝\n⏳ 混合套裝"

@@ -1,0 +1,123 @@
+[gd_scene load_steps=9 format=3 uid="uid://d0b0b0b0b0b0b0"]
+
+[ext_resource type="Script" path="res://grid_movement/grid_movement.gd" id="1_4h6rf"]
+[ext_resource type="Script" path="res://common/ui/back_button.gd" id="2_6h7sg"]
+[ext_resource type="PackedScene" path="res://common/ui/info_panel.tscn" id="3_7i8th"]
+
+[node name="GridMovementDemo" type="Node2D"]
+script = ExtResource("1_4h6rf")
+grid_size = 8
+tile_size = 80
+max_players = 2
+movement_range = 3
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+color = Color(0.101961, 0.101961, 0.180392, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UIContainer" type="Control" parent="CanvasLayer"]
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/UIContainer"]
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+alignment = 1
+
+[node name="TitleLabel" type="Label" parent="CanvasLayer/UIContainer/VBoxContainer"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_right = 1880.0
+offset_bottom = 60.0
+horizontal_alignment = 1
+vertical_alignment = 1
+text = "格子移動 (Grid Movement)"
+uppercase = true
+autowrap_mode = 1
+
+[node name="GameArea" type="Control" parent="CanvasLayer/UIContainer/VBoxContainer"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_right = 1880.0
+offset_bottom = 700.0
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/UIContainer/VBoxContainer/GameArea"]
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 100.0
+offset_top = 50.0
+offset_right = -100.0
+offset_bottom = -50.0
+columns = 8
+
+[node name="ControlPanel" type="HBoxContainer" parent="CanvasLayer/UIContainer/VBoxContainer"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_right = 1880.0
+offset_bottom = 800.0
+alignment = 1
+
+[node name="BackButton" type="Button" parent="CanvasLayer/UIContainer/VBoxContainer/ControlPanel"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 200.0
+offset_bottom = 60.0
+text = "返回主選單"
+script = ExtResource("2_6h7sg")
+
+[node name="ResetButton" type="Button" parent="CanvasLayer/UIContainer/VBoxContainer/ControlPanel"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 250.0
+offset_right = 450.0
+offset_bottom = 60.0
+text = "重置遊戲"
+
+[node name="NextTurnButton" type="Button" parent="CanvasLayer/UIContainer/VBoxContainer/ControlPanel"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 500.0
+offset_right = 700.0
+offset_bottom = 60.0
+text = "下一回合"
+
+[node name="InfoPanel" type="Control" parent="CanvasLayer/UIContainer/VBoxContainer"]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1880.0
+offset_bottom = 1080.0
+[node name="InfoPanel" type="Control" parent="CanvasLayer/UIContainer/VBoxContainer/InfoPanel" instance=ExtResource("3_7i8th")]
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1

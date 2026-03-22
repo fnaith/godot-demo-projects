@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dhvnpciokdyk"]
+
+[ext_resource type="Script" path="res://common/ui/back_button.gd" id="1_4q8qc"]
+
+[node name="BackButton" type="Button"]
+script = ExtResource("1_4q8qc")
+target_scene = "res://main.tscn"
+transition_duration = 0.5
+show_confirmation = false
+confirmation_message = "確定要返回主選單嗎？"
+anchor_right = 0.0
+anchor_bottom = 0.0
+position = Vector2(20, 20)
+size = Vector2(120, 40)
+text = "← 返回"
+focus_mode = 0

@@ -1,0 +1,70 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://dice_rolling/dice_rolling_simple.gd" id="1_dice"]
+
+[node name="DiceRollingDemo" type="Node2D"]
+script = ExtResource("1_dice")
+dice_count = 2
+dice_sides = 6
+auto_roll_on_ready = false
+roll_animation_duration = 1.0
+bounce_animation = true
+max_bounces = 3
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.1, 0.1, 0.18, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 1
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+
+[node name="TitleLabel" type="Label" parent="CanvasLayer/Control/VBoxContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "🎲 骰子擲投機制 🎲"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DiceContainer" type="Node2D" parent="CanvasLayer/Control/VBoxContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_minimum_size = Vector2(0, 200)
+
+[node name="ResultLabel" type="Label" parent="CanvasLayer/Control/VBoxContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "點擊擲骰子開始"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RollButton" type="Button" parent="CanvasLayer/Control/VBoxContainer"]
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_minimum_size = Vector2(200, 50)
+text = "擲骰子 🎲"
+
+[node name="HistoryLabel" type="RichTextLabel" parent="CanvasLayer/Control/VBoxContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_minimum_size = Vector2(0, 100)
+bbcode_enabled = true
+text = "[b]擲骰歷史:[/b]\n"
+
+[node name="BackButton" type="Button" parent="CanvasLayer/Control/VBoxContainer"]
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_minimum_size = Vector2(150, 40)
+text = "← 返回主選單"

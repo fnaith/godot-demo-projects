@@ -1,0 +1,57 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhvnpciokd0h"]
+
+[ext_resource type="Script" path="res://common/components/card.gd" id="1_4q8q8"]
+
+[node name="Card" type="Area2D"]
+script = ExtResource("1_4q8q8")
+card_name = "Card"
+card_type = "action"
+card_cost = 0
+card_value = 0
+card_description = "A generic card"
+is_playable = true
+is_draggable = true
+is_selectable = true
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+color = Color(0.0588235, 0.211765, 0.376471, 1)
+
+[node name="Highlight" type="ColorRect" parent="."]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+color = Color(0.913725, 0.27451, 0.376471, 1)
+modulate = Color(1, 1, 1, 0)
+
+[node name="NameLabel" type="Label" parent="."]
+position = Vector2(10, 10)
+size = Vector2(100, 30)
+text = "Card"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CostLabel" type="Label" parent="."]
+position = Vector2(80, 10)
+size = Vector2(30, 20)
+text = "Cost: 0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ValueLabel" type="Label" parent="."]
+position = Vector2(60, 150)
+size = Vector2(50, 20)
+text = "Value: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DescriptionLabel" type="Label" parent="."]
+position = Vector2(10, 50)
+size = Vector2(100, 80)
+text = "A generic card"
+vertical_alignment = 1
+autowrap_mode = 3

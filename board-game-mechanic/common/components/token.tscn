@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://dhvnpciokdyi"]
+
+[ext_resource type="Script" path="res://common/components/token.gd" id="1_4q8qa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4q8qa"]
+bg_color = Color(1, 0.419608, 0.419608, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.176471, 0.25098, 0.34902, 1)
+
+[node name="Token" type="Area2D"]
+script = ExtResource("1_4q8qa")
+token_name = "Token"
+token_value = 1
+token_type = "generic"
+is_selectable = true
+is_movable = true
+is_removable = true
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+color = Color(1, 0.419608, 0.419608, 1)
+
+[node name="Highlight" type="ColorRect" parent="."]
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+color = Color(0.913725, 0.27451, 0.376471, 1)
+modulate = Color(1, 1, 1, 0)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+
+[node name="ValueLabel" type="Label" parent="CenterContainer"]
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(1, 1, 1, 1)

@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://dhvnpciokdyj"]
+
+[ext_resource type="Script" path="res://common/components/tile.gd" id="1_4q8qb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4q8qb"]
+bg_color = Color(0.0862745, 0.129412, 0.243137, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.176471, 0.25098, 0.34902, 1)
+
+[node name="Tile" type="Area2D"]
+script = ExtResource("1_4q8qb")
+tile_name = "Tile"
+tile_type = "generic"
+tile_value = 0
+can_rotate = true
+can_flip = true
+can_select = true
+rotation_steps = 4
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+color = Color(0.0862745, 0.129412, 0.243137, 1)
+
+[node name="Highlight" type="ColorRect" parent="."]
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+color = Color(0.913725, 0.27451, 0.376471, 1)
+modulate = Color(1, 1, 1, 0)
+
+[node name="GridLines" type="Node2D" parent="."]
+
+[node name="Content" type="VBoxContainer" parent="."]
+anchor_left = 0
+anchor_top = 0
+anchor_right = 1
+anchor_bottom = 1
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+theme_override_constants/separation = 4
+
+[node name="NameLabel" type="Label" parent="Content"]
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "Tile"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 14
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+
+[node name="Spacer" type="Control" parent="Content"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ValueLabel" type="Label" parent="Content"]
+size_flags_horizontal = 3
+size_flags_vertical = 0
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(1, 0.901961, 0.427451, 1)
